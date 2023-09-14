@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
@@ -10,7 +11,7 @@ const app = express();
 // let items = ["Study","Eat","Sleep","Repeat"];
 // let workItems = [];
 
-mongoose.connect("mongodb+srv://anup1221:anup1221@cluster0.9lcafrz.mongodb.net/todoListDB");
+mongoose.connect(process.env.DATABASE);
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
@@ -87,7 +88,7 @@ app.post("/",function(req,res){
 
 
 
-    let today = date.getDate();
+    // let today = date.getDate();
 
     // if(itemName!== ""){
 
